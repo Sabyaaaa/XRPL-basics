@@ -8,7 +8,8 @@ const api = new RippleAPI({
 });
 api.connect().then(() => {
   /* begin custom code ------------------------------------ */
-  const myAddress = 'raQZvxqUfKW3fHjxfSriAgC9Xo3sZDm9zT';
+  // const myAddress = 'raQZvxqUfKW3fHjxfSriAgC9Xo3sZDm9zT';
+  const myAddress = 'rJCiSbfqWshYN41jhLm24Q8L2uMikoh2Kv';
 
   console.log('getting account info for', myAddress);
   return api.getAccountInfo(myAddress);
@@ -23,3 +24,5 @@ api.connect().then(() => {
 }).then(() => {
   console.log('done and disconnected.');
 }).catch(console.error);
+
+// rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn
