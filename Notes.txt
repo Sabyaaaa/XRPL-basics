@@ -1,0 +1,54 @@
+====== Testnet credentials ========
+
+Address: rUCap2t57wVepivNkz6axKvzh33jW1R2cF
+Secret: sEdVnZcsvnkvcZX3smfwkHzxgxXLSNs
+
+Note: Address is the encoding of the public key
+      secret is the encoding of the private key (needs to be kept private)
+
+====== Run this command to generate testnet credentials ======
+curl -s -X POST https://faucet.altnet.rippletest.net/accounts
+
+************** Ripple APIs Overview **************
+
+====== Ways to connect to rippled network ======
+1. command line
+2. JSON-RPC
+3. Web socket
+
+======== CONNECT TO RIPPLED ========
+API option 2: JSON-RPC
+curl -s -X POST "https://s.altnet.rippletest.net:51234" -d @- <<-END 
+{ 
+    "method": "server_info" , 
+    "params": [{}] 
+} 
+END
+
+API option 3: Web socket (refer documentation)
+{
+  "id": "my_first_request",
+  "command": "server_info",
+  "api_version": 1
+}
+
+======== Query ledger Data ========
+account_info -> this command retrieves information about an account 
+
+1. using JSON-RPC  --> this returns the balance in drops
+curl -s -X POST "https://s.altnet.rippletest.net:51234" -d @- <<-END 
+{
+    "method": "account_info",
+    "params": [{"account": "rUCap2t57wVepivNkz6axKvzh33jW1R2cF"}]
+}
+END
+
+2. using getAccountInfo in JavaScript (returns balance in XRP)
+api.connect().then(() => {
+    const myAddress = 'rJaeYKK27YWzg5FyRQCLQbdgVyiwnbyMgL';
+    console.log('Getting account info for', myAddress);
+    return api.getAccountInfo(myAddress);
+})
+
+======== Write Ledger Data (Transactions) ========
+> Payment Transaction
