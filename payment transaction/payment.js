@@ -7,7 +7,8 @@
 
 // code not working properly
 
-const RippleAPI = require('ripple-lib').RippleAPI
+const RippleAPI = require('ripple-lib').RippleAPI;
+const RippleKeypairs = require('ripple-keypairs');
 const api = new RippleAPI({ server: 'wss://s.altnet.rippletest.net:51233' }) // Public rippled server
 //const fetch     = require('node-fetch')
 
@@ -69,7 +70,6 @@ var _processTransaction = function () {
         console.log('===> Transaction: ', transaction)
 
         var txJSON = JSON.stringify(transaction)
-        var secret = Object.keys(wallets)[Object.values(wallets).indexOf(payFrom)]
         var secret = Object.keys(wallets)[Object.values(wallets).indexOf(payFrom)];
         console.log('Secret Key for PayFrom: ', secret);
 
@@ -79,7 +79,15 @@ var _processTransaction = function () {
             process.exit(1)
         }
 
+        console.log("Sign the transaction");
+        // Use ripple-keypairs to derive the keypair from the secret
+        // var txJSON = JSON.stringify(transaction);
+        // var keypair = RippleKeypairs.deriveKeypair(secret);
+        // var signature = RippleKeypairs.sign(txJSON, keypair.privateKey);
+        // signed_tx = JSON.parse(txJSON);
+        // signed_tx.TxnSignature = signature;
         signed_tx = api.sign(txJSON, secret)
+        console.log("Signed successfully");
         tx_at_ledger = closedLedger
 
         // sign the transaction with either master or standard key of the sender else the transaction will fail
