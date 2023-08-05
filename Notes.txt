@@ -39,7 +39,7 @@ account_info -> this command retrieves information about an account
 curl -s -X POST "https://s.altnet.rippletest.net:51234" -d @- <<-END 
 {
     "method": "account_info",
-    "params": [{"account": "rUCap2t57wVepivNkz6axKvzh33jW1R2cF"}]
+    "params": [{"account": "rN8rHSF1z281G29NzwT9MWPWaWRCchD5nG"}]
 }
 END
 
@@ -49,6 +49,28 @@ api.connect().then(() => {
     console.log('Getting account info for', myAddress);
     return api.getAccountInfo(myAddress);
 })
+NOTE: 1 xrp = 1000000 drops
 
 ======== Write Ledger Data (Transactions) ========
-> Payment Transaction
+> Payment Transaction: represent a transfer of value from one account to another
+Steps: 
+  - create two testnet accounts
+  - Invoke getAccountInfo() to check initial balance for each account
+  - run payment.js
+  - Invoke getAccountInfo() to verify the updated balance of both accounts after payment transaction
+  - Verify the transaction hash
+
+  When we submit a transaction i.e. call submit() method,
+  The immediate submit response incidates a provisional result
+  {
+    "resultCode": "success",
+    "resultMessage": "some message"
+  }
+
+  Submission of the transaction dosen't mean that the transaction is successfull.
+  The final outcome of a transaction is not known until it appears in a validated ledger.
+
+  The response to getTransaction() shows the final, immutable result in the "outcome".
+  Note: when using rippled's 'tx' method, look for "validated": true.
+
+  
