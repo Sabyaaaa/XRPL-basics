@@ -73,4 +73,20 @@ Steps:
   The response to getTransaction() shows the final, immutable result in the "outcome".
   Note: when using rippled's 'tx' method, look for "validated": true.
 
+================ Multisigning  use cases​ ================
+
+N-factor Auth: ​Store 2 or more keys on different devices, and require all the devices to sign each transaction.​
+M-of-N: ​Give keys to multiple people, and require a majority of signers to sign each transaction.​
+Delegate a backup plan:​Designate a team of people who can send transactions for you by working together, in case you’re unavailable. Keep using single signatures for normal business.​
+Primary and Approvals: ​Use the weights in your signer list to require a specific signer along with at least one other.
+
+****** Payment Multisigning demo ******
+1. Create 5 new test accounts (1 sender, 3 signers , 1 receiver)​
+2. Use the API call SignerListSet() to enable multisigning with signer accounts.​
+      - For this demo, the Signer list will consists of 3 signers with a quorum of 3 , first signer with a weight of 2 and remaining two signers with weight of 1.​
+      - The above configuration means the transaction must be signed by first signer and any one of the remaining two signers.​
+3. Sign payment transactions using signer’s secret key.​
+4. Combine signed transactions.​
+5. Submit signed transaction.​
+6. Confirm transaction.
   
