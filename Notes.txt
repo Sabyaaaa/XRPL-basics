@@ -89,4 +89,15 @@ Primary and Approvals: ​Use the weights in your signer list to require a speci
 4. Combine signed transactions.​
 5. Submit signed transaction.​
 6. Confirm transaction.
+
+
+======================================================
+######### check balance using cmd line ############
+const RippleAPI = require('ripple-lib').RippleAPI
+const api = new RippleAPI({ server: 'wss://s.altnet.rippletest.net:51233' }) undefined
+> const api = new RippleAPI({ server: 'wss://s.altnet.rippletest.net:51233' }) 
+undefined
+> api.isConnected()
+false
+> api.connect()
   

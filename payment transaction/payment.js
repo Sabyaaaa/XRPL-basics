@@ -9,7 +9,7 @@
 
 const RippleAPI = require('ripple-lib').RippleAPI;
 const RippleKeypairs = require('ripple-keypairs');
-const api = new RippleAPI({ server: 'wss://s.altnet.rippletest.net:51233' }) // Public rippled server
+const api = new RippleAPI({ server: 'wss://s.altnet.rippletest.net:51233/' }) // Public rippled server
 //const fetch     = require('node-fetch')
 
 // wallet is a combination of secret : account address
