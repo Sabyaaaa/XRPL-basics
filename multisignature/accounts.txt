@@ -53,3 +53,5 @@ RECEIVER
 ryi3sp5xTJbgwidcBbDF46upGEfY1mTqy
 Secret
 sEd7QH3XnW2VQvfUJ1u6uZ6hFgKyxnL
+
+node multisigning.js -  working

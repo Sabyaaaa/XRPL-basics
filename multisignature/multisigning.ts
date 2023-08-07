@@ -1,6 +1,11 @@
 /*
  * Create and submit a SignerListSet and multisign a transaction.
 */
+/**
+ * The code depicts two types of transactions in the XRP Ledger:
+ * - SignerListSet Transaction
+ * - Multisigning of AccountSet Transaction
+ */
 import {
     multisign,
     Client,
