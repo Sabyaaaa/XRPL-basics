@@ -1,5 +1,5 @@
 // ********** UDEMY **************
-// Not working - except for the youtube address. 
+
 'use strict';
 const rippleAPI = require('ripple-lib').RippleAPI;
 
