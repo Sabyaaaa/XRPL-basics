@@ -100,4 +100,15 @@ undefined
 > api.isConnected()
 false
 > api.connect()
+
+on the dex, you create offers via the OfferCreate transaction and you define which currency you want to sell and which to buy and on what rate and volume
+if your offer doesn't get filled immediately it becomes an object in the order book for that pair and is visible to others (just like an exchange's order book)
+and anyone can see and match your offer
   
+We are planning to build an xrp cross border payment system to reduce transmission fees for which we want to use bitstamp as a DEX and as an issuer.
+In our system firstly,we want to deposit fiat and purchase a stablecoin using bitstamp.
+Secondly,bitstamp must be using different payment gateways for different countries,so does bitstamp supports fiat from all countries.
+If it supports all countries ,will the fiat deposit mechanism different for all countries.
+The same process goes for withdrawal,we would need fiat in return for a token,so we will need to configure bank accounts of various countries for withdrawal,is there a mechanism for this.
+
+just set a trustline for a currency and the bot will send you tokens for free. of you need more, buy them via testnet XRP (no value) or create multiple accounts and create a trustline
